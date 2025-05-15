@@ -91,7 +91,7 @@ public class PJuego extends javax.swing.JPanel {
                 siempre comprueba si hay un ganador o empate, y si no cambia de turno*/
                 casillas[i][j].addMouseListener(new java.awt.event.MouseAdapter(){
                     @Override
-                    public void mouseClicked(java.awt.event.MouseEvent e){
+                    public void mousePressed(java.awt.event.MouseEvent e){
                         if(juego.insertarFicha(columna)){
                             actualizarTablero();
                             
