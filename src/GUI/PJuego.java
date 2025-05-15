@@ -92,35 +92,37 @@ public class PJuego extends javax.swing.JPanel {
                 casillas[i][j].addMouseListener(new java.awt.event.MouseAdapter(){
                     @Override
                     public void mousePressed(java.awt.event.MouseEvent e){
-                        if(juego.insertarFicha(columna)){
-                            actualizarTablero();
-                            
-                            if(juego.hayGanador()){
-                                if(juego.isTurnoJugador1()){
-                                    JOptionPane.showMessageDialog(null,"GANADOR EL JUGADOR 1 EEEEEE");
+                        if(e.getButton() == java.awt.event.MouseEvent.BUTTON1){
+                            if(juego.insertarFicha(columna)){
+                                actualizarTablero();
+
+                                if(juego.hayGanador()){
+                                    if(juego.isTurnoJugador1()){
+                                        JOptionPane.showMessageDialog(null,"GANADOR EL JUGADOR 1 EEEEEE");
+                                        juego.reiniciarJuego();
+                                        actualizarTablero();
+                                        actualizarLabelTurno();
+                                    }
+                                    else{
+                                        JOptionPane.showMessageDialog(null,"GANADOR EL JUGADOR 2 EEEEEE"); 
+                                        juego.reiniciarJuego();
+                                        actualizarTablero();
+                                        actualizarLabelTurno();
+
+                                    }
+                                }
+                                else if(juego.tableroLleno()){
+                                    JOptionPane.showMessageDialog(null, "EMPATEEEEEEEEEEEEE");
                                     juego.reiniciarJuego();
                                     actualizarTablero();
-                                    actualizarLabelTurno();
+                                    actualizarLabelTurno(); 
                                 }
                                 else{
-                                    JOptionPane.showMessageDialog(null,"GANADOR EL JUGADOR 2 EEEEEE"); 
-                                    juego.reiniciarJuego();
-                                    actualizarTablero();
+                                    juego.cambiarTurno();
                                     actualizarLabelTurno();
-                                    
                                 }
+
                             }
-                            else if(juego.tableroLleno()){
-                                JOptionPane.showMessageDialog(null, "EMPATEEEEEEEEEEEEE");
-                                juego.reiniciarJuego();
-                                actualizarTablero();
-                                actualizarLabelTurno(); 
-                            }
-                            else{
-                                juego.cambiarTurno();
-                                actualizarLabelTurno();
-                            }
-                            
                         }
                     }
                 });
