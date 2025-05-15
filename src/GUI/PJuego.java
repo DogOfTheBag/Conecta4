@@ -92,6 +92,7 @@ public class PJuego extends javax.swing.JPanel {
                 casillas[i][j].addMouseListener(new java.awt.event.MouseAdapter(){
                     @Override
                     public void mousePressed(java.awt.event.MouseEvent e){
+                        //para que solo reaccione con el click izquierdo
                         if(e.getButton() == java.awt.event.MouseEvent.BUTTON1){
                             if(juego.insertarFicha(columna)){
                                 actualizarTablero();
