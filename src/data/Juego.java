@@ -99,11 +99,11 @@ public class Juego {
     mismos requisitos que la anterior*/
     private boolean diagonalDescIgual() {
           for (int filas = 0; filas < 3; filas++) {
-            for (int columnas = 5; columnas >= 3; columnas--) {
+            for (int columnas = 0; columnas < 3; columnas++) {
                 if (tablero[filas][columnas] == this.jugadorActual &&
-                    tablero[filas + 1][columnas - 1] == this.jugadorActual &&
-                    tablero[filas + 2][columnas - 2] == this.jugadorActual &&
-                    tablero[filas + 3][columnas - 3] == this.jugadorActual)
+                    tablero[filas + 1][columnas + 1] == this.jugadorActual &&
+                    tablero[filas + 2][columnas + 2] == this.jugadorActual &&
+                    tablero[filas + 3][columnas + 3] == this.jugadorActual)
                     return true;
             }
         }
